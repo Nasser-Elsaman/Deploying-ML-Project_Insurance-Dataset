@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
-data = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/Data/Flask-deploy-model/insurance.csv")
+data = pd.read_csv(insurance.csv)
 le = LabelEncoder()
 le.fit(data['sex'])
 data['Sex'] = le.transform(data['sex'])
@@ -24,5 +24,5 @@ predictions = linreg.predict(x_test)
 linreg.score(x_test,y_test)
 #save model
 import pickle
-file = open("/content/drive/MyDrive/Colab Notebooks/Data/Flask-deploy-model/expense_model.pkl", 'wb')
+file = open("expense_model.pkl", 'wb')
 pickle.dump(linreg, file)
