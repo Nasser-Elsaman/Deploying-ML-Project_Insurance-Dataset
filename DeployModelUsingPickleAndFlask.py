@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 import numpy as np
 
-app = Flask(__name__, template_folder='/content/drive/MyDrive/Colab Notebooks/Data/Flask-deploy-model/templates')
+app = Flask(__name__)
 
 @app.route("/")
 def hello():
