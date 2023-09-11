@@ -4,6 +4,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 data = pd.read_csv('insurance.csv', encoding='unicode_escape')
+with open('your_file.csv', 'r', encoding='your_encoding') as file:
+    contents = file.read()
+encodings_to_try = ['utf-8', 'latin-1', 'cp1252']
+for encoding in encodings_to_try:
+    try:
+        with open('your_file.csv', 'r', encoding=encoding) as file:
+            contents = file.read()
+        break  # Break the loop if successful
+    except UnicodeDecodeError:
+        continue  # Try the next encoding
 le = LabelEncoder()
 le.fit(data['sex'])
 data['Sex'] = le.transform(data['sex'])
