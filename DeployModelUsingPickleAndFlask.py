@@ -1,10 +1,8 @@
 from flask import Flask, request, render_template
 import pickle
 import numpy as np
-from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__, template_folder='/content/drive/MyDrive/Colab Notebooks/Data/Flask-deploy-model/templates')
-run_with_ngrok(app)  # Start ngrok when app is run
 
 @app.route("/")
 def hello():
